@@ -1,0 +1,26 @@
+{
+  "id": "audio-score",
+  "name": "Audio Score - Audio to Sheet Music",
+  "version": "0.1.12",
+  "minAppVersion": "1.0.0",
+  "description": "Analyze audio files and display detected notes as sheet music on a staff. Supports local and Drive audio files.",
+  "author": "takeshy",
+  "assets": [
+    {
+      "name": "demucs_onnx_simd.js",
+      "url": "https://storage.googleapis.com/takeshy-work-public-files/1772580414285-demucs_onnx_simd.js"
+    },
+    {
+      "name": "demucs_onnx_simd.wasm",
+      "url": "https://storage.googleapis.com/takeshy-work-public-files/1772580421937-demucs_onnx_simd.wasm"
+    },
+    {
+      "name": "htdemucs_6s.ort.gz",
+      "url": "https://storage.googleapis.com/takeshy-work-public-files/htdemucs_6s_patched.ort.gz"
+    },
+    {
+      "name": "piano_transcription.ort.gz",
+      "url": "https://storage.googleapis.com/takeshy-work-public-files/piano_transcription.ort.gz"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+node_modules/
+main.js
+*.mp3
+*-score.md
+tmp
