@@ -1,6 +1,7 @@
 # Audio Score - 音声から楽譜へ
 
-音声ファイルから楽譜を自動生成する [GemiHub](https://github.com/takeshy/gemihub) プラグインです。MLベースのピッチ検出により、検出されたノートを五線譜上にレンダリングし、再生もサポートします。
+音声ファイルから楽譜を自動生成する [GemiHub](https://github.com/takeshy/gemihub)／GemiHub Desktop共通プラグインです。MLベースのピッチ検出により、検出されたノートを五線譜上にレンダリングし、再生もサポートします。
+
 
 [English](README.md)
 
@@ -20,9 +21,11 @@
 
 ## インストール
 
-1. GemiHub の **Settings > Plugins** を開く
+1. GemiHub の **Settings > Plugins**、またはGemiHub Desktop 0.8.1以降のPlugin managerを開く
 2. `takeshy/hub-audio-score` を入力
 3. **Install** をクリック
+
+両hostが同じGitHub Releaseを使用します。GemiHubは`main.js`を読み込み、GemiHub Desktopはrepository管理の`patches/gemihub-desktop.patch`を適用してactive project内のファイルを読み書きします。
 
 ## 使い方
 

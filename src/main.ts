@@ -8,6 +8,7 @@
 import { ScorePanel } from "./ui/ScorePanel";
 import { SettingsPanel } from "./ui/SettingsPanel";
 import { MainView } from "./ui/MainView";
+import { adaptPluginAPI, audioScoreMainViewLocation } from "./host";
 
 interface PluginAPI {
   registerView(view: {
@@ -31,7 +32,8 @@ interface PluginAPI {
 }
 
 class AudioScorePlugin {
-  onload(api: PluginAPI): void {
+  onload(hostAPI: PluginAPI): void {
+    const api = adaptPluginAPI(hostAPI);
     api.registerView({
       id: "audio-score",
       name: "Audio Score",
@@ -42,7 +44,7 @@ class AudioScorePlugin {
     api.registerView({
       id: "audio-score-main",
       name: "Audio Score",
-      location: "main",
+      location: audioScoreMainViewLocation,
       extensions: [".audioscore", ".mid", ".midi"],
       component: MainView,
     });

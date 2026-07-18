@@ -15,6 +15,7 @@ import { playScore, PlaybackHandle } from "../core/player";
 import type { ChordAnnotation } from "../core/aiService";
 import { analyzeChords } from "../core/aiService";
 import { setState, useStore } from "../store";
+import { readPluginBinary } from "../host";
 
 interface PluginAPI {
   language?: string;
@@ -172,8 +173,7 @@ export function ScorePanel({ api, language, fileId: activeFileId, fileName: acti
     setError("");
 
     if (isMidi) {
-      fetch(`/api/drive/files?action=raw&fileId=${encodeURIComponent(activeFileId)}`)
-        .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.arrayBuffer(); })
+      readPluginBinary(api, activeFileId)
         .then(
           async (buf) => {
             try {
@@ -328,11 +328,7 @@ export function ScorePanel({ api, language, fileId: activeFileId, fileName: acti
   const ensureAudioDecoded = React.useCallback(async (): Promise<AudioBuffer | null> => {
     if (audioRef.current) return audioRef.current;
     if (!activeFileId || !activeFileName) return null;
-    const resp = await fetch(
-      `/api/drive/files?action=raw&fileId=${encodeURIComponent(activeFileId)}`,
-    );
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    const buf = await resp.arrayBuffer();
+    const buf = await readPluginBinary(api, activeFileId);
     const audioCtx = new AudioContext();
     try {
       const audioBuffer = await audioCtx.decodeAudioData(buf);
@@ -343,7 +339,7 @@ export function ScorePanel({ api, language, fileId: activeFileId, fileName: acti
     } finally {
       await audioCtx.close();
     }
-  }, [activeFileId, activeFileName]);
+  }, [activeFileId, activeFileName, api]);
 
   /**
    * Run pitch detection and build score.

@@ -1,6 +1,6 @@
 # Audio Score - Audio to Sheet Music
 
-A [GemiHub](https://github.com/takeshy/gemihub) plugin that converts audio files into sheet music using ML-based pitch detection. Detected notes are rendered on a musical staff with playback support.
+A shared [GemiHub](https://github.com/takeshy/gemihub) and GemiHub Desktop plugin that converts audio files into sheet music using ML-based pitch detection. Detected notes are rendered on a musical staff with playback support.
 
 [Japanese / 日本語](README_ja.md)
 
@@ -20,9 +20,11 @@ A [GemiHub](https://github.com/takeshy/gemihub) plugin that converts audio files
 
 ## Installation
 
-1. Go to **Settings > Plugins** in GemiHub
+1. Go to **Settings > Plugins** in GemiHub, or open the Plugin manager in GemiHub Desktop 0.8.1+
 2. Enter `takeshy/hub-audio-score`
 3. Click **Install**
+
+Both hosts use the same GitHub Release. GemiHub loads `main.js`; GemiHub Desktop applies the repository-owned `patches/gemihub-desktop.patch` and reads or writes files in the active project.
 
 ## Usage
 

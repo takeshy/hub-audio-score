@@ -1,6 +1,6 @@
 {
   "name": "hub-audio-score",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Audio to sheet music plugin for GemiHub - ML-based pitch detection with staff notation rendering",
   "main": "main.js",
   "scripts": {
@@ -21,12 +21,12 @@
   "author": "takeshy",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^16.11.6",
+    "@types/node": "^20.19.43",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "esbuild": "^0.25.2",
+    "esbuild": "^0.28.1",
     "typescript": "^5.0.0",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.10"
   },
   "peerDependencies": {
     "react": "^19.0.0",
@@ -34,6 +34,6 @@
   },
   "dependencies": {
     "@spotify/basic-pitch": "^1.0.1",
-    "jspdf": "^2.5.2"
+    "jspdf": "^4.2.1"
   }
 }

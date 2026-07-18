@@ -1,0 +1,29 @@
+--- a/main.js
++++ b/main.js
+@@ -22962,7 +22962,7 @@
+ 
+ // src/host.ts
+ function adaptPluginAPI(input) {
+-  if (true) return input;
++  if (false) return input;
+   const api = input;
+   const files = api.projectFiles;
+   if (!files) throw new Error("Audio Score requires GemiHub Desktop 0.8.1 or newer.");
+@@ -22990,7 +22990,7 @@
+   return bytes.buffer;
+ }
+ async function readPluginBinary(api, path) {
+-  if (true) {
++  if (false) {
+     const response = await fetch(`/api/drive/files?action=raw&fileId=${encodeURIComponent(path)}`);
+     if (!response.ok) throw new Error(`HTTP ${response.status}`);
+     return response.arrayBuffer();
+@@ -22998,7 +22998,7 @@
+   if (!api.drive.readFile) throw new Error("Project file reading is unavailable.");
+   return decodeProjectContent(await api.drive.readFile(path));
+ }
+-var audioScoreMainViewLocation = false ? "sidebar" : "main";
++var audioScoreMainViewLocation = true ? "sidebar" : "main";
+ 
+ // src/ui/ScorePanel.tsx
+ var DEFAULT_ANALYSIS_STEM = "piano";

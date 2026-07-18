@@ -34,3 +34,4 @@ jobs:
             main.js
             manifest.json
             styles.css
+            patches/gemihub-desktop.patch
