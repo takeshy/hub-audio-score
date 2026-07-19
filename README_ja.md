@@ -25,7 +25,7 @@
 2. `takeshy/hub-audio-score` を入力
 3. **Install** をクリック
 
-両hostが同じGitHub Releaseを使用します。GemiHubは`main.js`を読み込み、GemiHub Desktopはrepository管理の`patches/gemihub-desktop.patch`を適用してactive project内のファイルを読み書きします。
+両hostが同じGitHub Releaseを使用します。GemiHubは`main.js`を読み込み、GemiHub Desktopはrepository管理の`patches/gemihub-desktop.patch`を適用してactive Workspace内のファイルを読み書きします。
 
 ## 使い方
 

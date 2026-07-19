@@ -24,7 +24,7 @@ A shared [GemiHub](https://github.com/takeshy/gemihub) and GemiHub Desktop plugi
 2. Enter `takeshy/hub-audio-score`
 3. Click **Install**
 
-Both hosts use the same GitHub Release. GemiHub loads `main.js`; GemiHub Desktop applies the repository-owned `patches/gemihub-desktop.patch` and reads or writes files in the active project.
+Both hosts use the same GitHub Release. GemiHub loads `main.js`; GemiHub Desktop applies the repository-owned `patches/gemihub-desktop.patch` and reads or writes files in the active Workspace.
 
 ## Usage
 

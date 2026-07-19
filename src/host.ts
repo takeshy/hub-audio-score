@@ -1,20 +1,20 @@
 declare const __GEMIHUB_DESKTOP__: boolean;
 
-interface DesktopProjectFiles {
+interface DesktopWorkspaceFiles {
   read(path: string): Promise<string>;
   create(path: string, content: string | ArrayBuffer): Promise<void>;
   update(path: string, content: string | ArrayBuffer): Promise<void>;
 }
 
 interface DesktopPluginAPI {
-  projectFiles?: DesktopProjectFiles;
+  workspaceFiles?: DesktopWorkspaceFiles;
   [key: string]: unknown;
 }
 
 export function adaptPluginAPI<T>(input: T): T {
   if (!__GEMIHUB_DESKTOP__) return input;
   const api = input as T & DesktopPluginAPI;
-  const files = api.projectFiles;
+  const files = api.workspaceFiles;
   if (!files) throw new Error("Audio Score requires GemiHub Desktop 0.8.1 or newer.");
   return Object.assign(api, {
     drive: {
@@ -28,7 +28,7 @@ export function adaptPluginAPI<T>(input: T): T {
   });
 }
 
-function decodeProjectContent(content: string): ArrayBuffer {
+function decodeWorkspaceContent(content: string): ArrayBuffer {
   const match = content.match(/^data:[^,]*?(;base64)?,(.*)$/s);
   if (!match) return new TextEncoder().encode(content).buffer;
   const decoded = match[1] ? atob(match[2]) : decodeURIComponent(match[2]);
@@ -43,8 +43,8 @@ export async function readPluginBinary(api: { drive: { readFile?(path: string): 
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.arrayBuffer();
   }
-  if (!api.drive.readFile) throw new Error("Project file reading is unavailable.");
-  return decodeProjectContent(await api.drive.readFile(path));
+  if (!api.drive.readFile) throw new Error("Workspace file reading is unavailable.");
+  return decodeWorkspaceContent(await api.drive.readFile(path));
 }
 
 export const audioScoreMainViewLocation: "sidebar" | "main" = __GEMIHUB_DESKTOP__ ? "sidebar" : "main";
