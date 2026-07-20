@@ -28,7 +28,7 @@ export function adaptPluginAPI<T>(input: T): T {
   });
 }
 
-function decodeWorkspaceContent(content: string): ArrayBuffer {
+export function decodeWorkspaceContent(content: string): ArrayBuffer {
   const match = content.match(/^data:[^,]*?(;base64)?,(.*)$/s);
   if (!match) return new TextEncoder().encode(content).buffer;
   const decoded = match[1] ? atob(match[2]) : decodeURIComponent(match[2]);

@@ -514,6 +514,12 @@ export function ScorePanel({ api, language, fileId: activeFileId, fileName: acti
    * Toggle score playback.
    */
   const handlePlayStop = React.useCallback(() => {
+    console.info("[Audio Score] side view playback button", {
+      playing,
+      hasScore: !!score,
+      measures: score?.measures.length ?? 0,
+      notes: score?.measures.reduce((total, measure) => total + measure.notes.length, 0) ?? 0,
+    });
     if (playing && playbackRef.current) {
       playbackRef.current.stop();
       playbackRef.current = null;

@@ -23,6 +23,25 @@ export interface PlaybackHandle {
  */
 export function playScore(score: ScoreData, startMeasure?: number): PlaybackHandle {
   const ctx = new AudioContext();
+  console.info("[Audio Score] playback requested", {
+    contextState: ctx.state,
+    startMeasure: startMeasure ?? 1,
+    measures: score.measures.length,
+    bpm: score.bpm,
+  });
+  // Windows WebView can create an AudioContext in the suspended state even
+  // from a button or canvas gesture. Explicitly resume it so playback time,
+  // scheduling, and the active-measure indicator all advance.
+  if (ctx.state === "suspended") {
+    void ctx.resume().then(() => {
+      console.info("[Audio Score] AudioContext resumed", {
+        contextState: ctx.state,
+        currentTime: ctx.currentTime,
+      });
+    }).catch((error) => {
+      console.error("[Audio Score] AudioContext resume failed", error);
+    });
+  }
   let stopped = false;
 
   const beatDuration = 60 / score.bpm;
@@ -40,11 +59,15 @@ export function playScore(score: ScoreData, startMeasure?: number): PlaybackHand
     .flatMap((m) => m.notes)
     .filter((n) => n.midi >= 0)
     .sort((a, b) => a.startTime - b.startTime);
-
-  // Offset so playback starts at the first note's time (skips downbeatOffset silence)
-  const timeOffset = allNotes.length > 0 && startMeasure != null
-    ? allNotes[0].startTime
-    : 0;
+  // Analysis results retain their source-audio timeline and can begin with a
+  // long stretch of silence. Start at the first playable note for both full
+  // playback and playback from a selected measure.
+  const timeOffset = allNotes.length > 0 ? allNotes[0].startTime : 0;
+  console.info("[Audio Score] playback notes prepared", {
+    notes: allNotes.length,
+    contextState: ctx.state,
+    timeOffset,
+  });
   const baseTime = ctx.currentTime + 0.1 - timeOffset;
 
   let nextIndex = 0;
@@ -111,6 +134,10 @@ export function playScore(score: ScoreData, startMeasure?: number): PlaybackHand
           ctx.close().catch(() => {});
         }
         resolveFinished?.();
+        console.info("[Audio Score] playback finished", {
+          contextState: ctx.state,
+          notes: allNotes.length,
+        });
       }, delayMs);
     }
   }
@@ -140,6 +167,10 @@ export function playScore(score: ScoreData, startMeasure?: number): PlaybackHand
     if (timeoutId !== null) clearTimeout(timeoutId);
     ctx.close().catch(() => {});
     resolveFinished?.();
+    console.info("[Audio Score] playback stopped", {
+      contextState: ctx.state,
+      currentTime: ctx.currentTime,
+    });
   }
 
   function getElapsed(): number {
