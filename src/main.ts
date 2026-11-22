@@ -1,5 +1,5 @@
 /**
- * Audio Score - Audio to Sheet Music Plugin for GemiHub
+ * Audio Score - Audio to Sheet Music Plugin for kiokuflow
  *
  * Analyzes audio files using FFT-based pitch detection and
  * renders detected notes as sheet music on a canvas staff.

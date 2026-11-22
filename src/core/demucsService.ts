@@ -320,7 +320,7 @@ interface ChunkDesc {
  * are saved to IndexedDB so JS memory stays bounded.
  *
  * @param audioBuffer  Input audio (any sample rate — resampled to 44 100 Hz internally).
- * @param fetchAsset   Callback to fetch a named asset. In GemiHub: `(name) => api.assets.fetch(name)`.
+ * @param fetchAsset   Callback to fetch a named asset. In kiokuflow: `(name) => api.assets.fetch(name)`.
  * @param onProgress   Optional progress callback.
  * @param numWorkers   Number of parallel WASM workers per batch (default: DEFAULT_NUM_WORKERS).
  * @returns Record mapping each StemName to its separated AudioBuffer at 44 100 Hz.

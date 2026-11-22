@@ -1,6 +1,6 @@
 # Audio Score - Audio to Sheet Music
 
-A shared [GemiHub](https://github.com/takeshy/gemihub) and GemiHub Desktop plugin that converts audio files into sheet music using ML-based pitch detection. Detected notes are rendered on a musical staff with playback support.
+A shared [kiokuflow](https://github.com/takeshy/kiokuflow) and GemiHub Desktop plugin that converts audio files into sheet music using ML-based pitch detection. Detected notes are rendered on a musical staff with playback support.
 
 [Japanese / 日本語](README_ja.md)
 
@@ -20,15 +20,15 @@ A shared [GemiHub](https://github.com/takeshy/gemihub) and GemiHub Desktop plugi
 
 ## Installation
 
-1. Go to **Settings > Plugins** in GemiHub, or open the Plugin manager in GemiHub Desktop 0.8.1+
+1. Go to **Settings > Plugins** in kiokuflow, or open the Plugin manager in GemiHub Desktop 0.8.1+
 2. Enter `takeshy/hub-audio-score`
 3. Click **Install**
 
-Both hosts use the same GitHub Release. GemiHub loads `main.js`; GemiHub Desktop applies the repository-owned `patches/gemihub-desktop.patch` and reads or writes files in the active Workspace.
+Both hosts use the same GitHub Release. kiokuflow loads `main.js`; GemiHub Desktop applies the repository-owned `patches/gemihub-desktop.patch` and reads or writes files in the active Workspace.
 
 ## Usage
 
-1. Open the Audio Score panel in the GemiHub sidebar. When a non-audio file is selected, only the **Load Audio File** button is shown
+1. Open the Audio Score panel in the kiokuflow sidebar. When a non-audio file is selected, only the **Load Audio File** button is shown
 
 ![Initial panel](docs/images/before_open.png)
 
@@ -139,7 +139,7 @@ npm test         # Run vitest
 ### Deploy
 
 ```bash
-cp main.js styles.css manifest.json ~/pkg/gemihub/data/plugins/audio-score/
+cp main.js styles.css manifest.json ~/pkg/kiokuflow/data/plugins/audio-score/
 ```
 
 ## Third-Party Licenses
