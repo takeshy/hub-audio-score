@@ -8,7 +8,7 @@
 +  if (false) return input;
    const api = input;
    const files = api.workspaceFiles;
-   if (!files) throw new Error("Audio Score requires GemiHub Desktop 0.8.1 or newer.");
+   if (!files) throw new Error("Audio Score requires kiokuflow-desktop 0.8.1 or newer.");
 @@ -23019,7 +23019,7 @@
    return bytes.buffer;
  }

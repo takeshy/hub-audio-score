@@ -1,4 +1,4 @@
-declare const __GEMIHUB_DESKTOP__: boolean;
+declare const __KIOKUFLOW_DESKTOP__: boolean;
 
 interface DesktopWorkspaceFiles {
   read(path: string): Promise<string>;
@@ -12,10 +12,10 @@ interface DesktopPluginAPI {
 }
 
 export function adaptPluginAPI<T>(input: T): T {
-  if (!__GEMIHUB_DESKTOP__) return input;
+  if (!__KIOKUFLOW_DESKTOP__) return input;
   const api = input as T & DesktopPluginAPI;
   const files = api.workspaceFiles;
-  if (!files) throw new Error("Audio Score requires GemiHub Desktop 0.8.1 or newer.");
+  if (!files) throw new Error("Audio Score requires kiokuflow-desktop 0.8.1 or newer.");
   return Object.assign(api, {
     drive: {
       readFile(path: string) { return files.read(path); },
@@ -38,7 +38,7 @@ export function decodeWorkspaceContent(content: string): ArrayBuffer {
 }
 
 export async function readPluginBinary(api: { drive: { readFile?(path: string): Promise<string> } }, path: string): Promise<ArrayBuffer> {
-  if (!__GEMIHUB_DESKTOP__) {
+  if (!__KIOKUFLOW_DESKTOP__) {
     const response = await fetch(`/api/drive/files?action=raw&fileId=${encodeURIComponent(path)}`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.arrayBuffer();
@@ -47,4 +47,4 @@ export async function readPluginBinary(api: { drive: { readFile?(path: string): 
   return decodeWorkspaceContent(await api.drive.readFile(path));
 }
 
-export const audioScoreMainViewLocation: "sidebar" | "main" = __GEMIHUB_DESKTOP__ ? "sidebar" : "main";
+export const audioScoreMainViewLocation: "sidebar" | "main" = __KIOKUFLOW_DESKTOP__ ? "sidebar" : "main";

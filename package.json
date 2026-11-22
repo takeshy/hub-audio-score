@@ -1,7 +1,7 @@
 {
   "name": "hub-audio-score",
   "version": "0.1.17",
-  "description": "Audio to sheet music plugin for kiokuflow and GemiHub Desktop - ML-based pitch detection with staff notation rendering",
+  "description": "Audio to sheet music plugin for kiokuflow and kiokuflow-desktop - ML-based pitch detection with staff notation rendering",
   "main": "main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",
@@ -11,7 +11,7 @@
   },
   "keywords": [
     "kiokuflow",
-    "gemihub",
+    "kiokuflow-desktop",
     "plugin",
     "audio",
     "music",

@@ -1,6 +1,6 @@
 # Audio Score - 音声から楽譜へ
 
-音声ファイルから楽譜を自動生成する [kiokuflow](https://github.com/takeshy/kiokuflow)／GemiHub Desktop共通プラグインです。MLベースのピッチ検出により、検出されたノートを五線譜上にレンダリングし、再生もサポートします。
+音声ファイルから楽譜を自動生成する [kiokuflow](https://github.com/takeshy/kiokuflow)／kiokuflow-desktop共通プラグインです。MLベースのピッチ検出により、検出されたノートを五線譜上にレンダリングし、再生もサポートします。
 
 
 [English](README.md)
@@ -21,11 +21,11 @@
 
 ## インストール
 
-1. kiokuflow の **Settings > Plugins**、またはGemiHub Desktop 0.8.1以降のPlugin managerを開く
+1. kiokuflow の **Settings > Plugins**、またはkiokuflow-desktop 0.8.1以降のPlugin managerを開く
 2. `takeshy/hub-audio-score` を入力
 3. **Install** をクリック
 
-両hostが同じGitHub Releaseを使用します。kiokuflowは`main.js`を読み込み、GemiHub Desktopはrepository管理の`patches/gemihub-desktop.patch`を適用してactive Workspace内のファイルを読み書きします。
+両hostが同じGitHub Releaseを使用します。kiokuflowは`main.js`を読み込み、kiokuflow-desktopはrepository管理の`patches/kiokuflow-desktop.patch`を適用してactive Workspace内のファイルを読み書きします。`manifest.json`の`hostPatches`キーは、kiokuflow-desktopのplugin host IDが現在も`gemihub-desktop`のため、そのままにしています。
 
 ## 使い方
 

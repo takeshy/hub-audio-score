@@ -6,7 +6,7 @@
   "description": "Analyze audio files and display detected notes as sheet music on a staff. Supports local and Drive audio files.",
   "author": "takeshy",
   "hostPatches": {
-    "gemihub-desktop": ["patches/gemihub-desktop.patch"]
+    "gemihub-desktop": ["patches/kiokuflow-desktop.patch"]
   },
   "permissions": ["storage", "files", "drive", "gemini"],
   "assets": [

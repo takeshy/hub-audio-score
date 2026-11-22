@@ -1,6 +1,6 @@
 # Audio Score - Audio to Sheet Music
 
-A shared [kiokuflow](https://github.com/takeshy/kiokuflow) and GemiHub Desktop plugin that converts audio files into sheet music using ML-based pitch detection. Detected notes are rendered on a musical staff with playback support.
+A shared [kiokuflow](https://github.com/takeshy/kiokuflow) and kiokuflow-desktop plugin that converts audio files into sheet music using ML-based pitch detection. Detected notes are rendered on a musical staff with playback support.
 
 [Japanese / 日本語](README_ja.md)
 
@@ -20,11 +20,11 @@ A shared [kiokuflow](https://github.com/takeshy/kiokuflow) and GemiHub Desktop p
 
 ## Installation
 
-1. Go to **Settings > Plugins** in kiokuflow, or open the Plugin manager in GemiHub Desktop 0.8.1+
+1. Go to **Settings > Plugins** in kiokuflow, or open the Plugin manager in kiokuflow-desktop 0.8.1+
 2. Enter `takeshy/hub-audio-score`
 3. Click **Install**
 
-Both hosts use the same GitHub Release. kiokuflow loads `main.js`; GemiHub Desktop applies the repository-owned `patches/gemihub-desktop.patch` and reads or writes files in the active Workspace.
+Both hosts use the same GitHub Release. kiokuflow loads `main.js`; kiokuflow-desktop applies the repository-owned `patches/kiokuflow-desktop.patch` and reads or writes files in the active Workspace. The `hostPatches` key in `manifest.json` stays `gemihub-desktop` because that is still kiokuflow-desktop's plugin host ID.
 
 ## Usage
 
