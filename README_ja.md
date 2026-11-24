@@ -25,7 +25,7 @@
 2. `takeshy/hub-audio-score` を入力
 3. **Install** をクリック
 
-両hostが同じGitHub Releaseを使用します。kiokuflowは`main.js`を読み込み、kiokuflow-desktopはrepository管理の`patches/kiokuflow-desktop.patch`を適用してactive Workspace内のファイルを読み書きします。`manifest.json`の`hostPatches`キーは、kiokuflow-desktopのplugin host IDが現在も`gemihub-desktop`のため、そのままにしています。
+両ホストが同じGitHub Releaseを使用します。kiokuflowは`main.js`を読み込み、kiokuflow-desktopは`patches/kiokuflow-desktop.patch`を適用して、現在のワークスペース内のファイルを読み書きします。`manifest.json`では、現在のホストID `kiokuflow-desktop` と旧ホストID `gemihub-desktop` の両方に同じパッチを指定しています。
 
 ## 使い方
 

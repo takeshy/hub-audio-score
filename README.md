@@ -24,7 +24,7 @@ A shared [kiokuflow](https://github.com/takeshy/kiokuflow) and kiokuflow-desktop
 2. Enter `takeshy/hub-audio-score`
 3. Click **Install**
 
-Both hosts use the same GitHub Release. kiokuflow loads `main.js`; kiokuflow-desktop applies the repository-owned `patches/kiokuflow-desktop.patch` and reads or writes files in the active Workspace. The `hostPatches` key in `manifest.json` stays `gemihub-desktop` because that is still kiokuflow-desktop's plugin host ID.
+Both hosts use the same GitHub Release. kiokuflow loads `main.js`. kiokuflow-desktop applies `patches/kiokuflow-desktop.patch` to read and write files in the active Workspace. The manifest maps both the current `kiokuflow-desktop` host ID and the legacy `gemihub-desktop` host ID to the same patch.
 
 ## Usage
 
